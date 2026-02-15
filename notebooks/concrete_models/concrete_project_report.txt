@@ -1,0 +1,197 @@
+
+================================================================================
+RELATÓRIO FINAL - PREVISÃO DE RESISTÊNCIA DO CONCRETO
+================================================================================
+
+📅 Data: 15/02/2026 19:32:44
+👤 Projeto: Concrete Strength Prediction
+🎯 Objetivo: Prever resistência à compressão do concreto
+
+================================================================================
+1. DATASET
+================================================================================
+
+📊 Informações Gerais:
+   • Total de amostras: 2029
+   • Features: 8
+   • Target: Concrete compressive strength (MPa)
+
+📋 Features utilizadas:
+   1. Cement (kg/m³)
+   2. Blast Furnace Slag (kg/m³)
+   3. Fly Ash (kg/m³)
+   4. Water (kg/m³)
+   5. Superplasticizer (kg/m³)
+   6. Coarse Aggregate (kg/m³)
+   7. Fine Aggregate (kg/m³)
+   8. Age (dias)
+
+📈 Estatísticas do Target:
+   • Média: 35.89 MPa
+   • Mediana: 34.67 MPa
+   • Desvio Padrão: 16.86 MPa
+   • Mínimo: 2.10 MPa
+   • Máximo: 87.20 MPa
+
+================================================================================
+2. DIVISÃO DOS DADOS
+================================================================================
+
+✅ Treino: 1616 amostras (79.6%)
+✅ Teste:  404 amostras (19.9%)
+
+📊 Distribuição equilibrada:
+   • Média Treino: 36.04 MPa
+   • Média Teste:  35.29 MPa
+   • Diferença: 0.75 MPa
+
+================================================================================
+3. MODELOS TESTADOS
+================================================================================
+
+🏆 RANKING DOS MODELOS (por R² Score):
+
+   🥇 Gradient Boosting:  R² = 0.7977, RMSE = 7.43 MPa, MAE = 5.34 MPa
+   🥈 Random Forest:      R² = 0.7797, RMSE = 7.76 MPa, MAE = 5.46 MPa
+   🥉 Decision Tree:      R² = 0.6899, RMSE = 9.20 MPa, MAE = 6.53 MPa
+   4. Ridge Regression:   R² = 0.3731, RMSE = 13.09 MPa, MAE = 10.37 MPa
+   5. Linear Regression:  R² = 0.3731, RMSE = 13.09 MPa, MAE = 10.37 MPa
+   6. Lasso Regression:   R² = 0.3375, RMSE = 13.45 MPa, MAE = 10.77 MPa
+
+📊 BASELINES (modelos simples):
+   • Baseline LR Simples: R² = 0.0901, MAE = 12.93 MPa
+   • Baseline Mediana:    R² = -0.00, MAE = 13.40 MPa
+   • Baseline Média:      R² = -0.00, MAE = 13.50 MPa
+
+💡 GANHO SOBRE BASELINE:
+   • Gradient Boosting é 786% melhor que o melhor baseline!
+   • Redução de erro: 58.7% (de 12.93 para 5.34 MPa)
+
+================================================================================
+4. MELHOR MODELO: GRADIENT BOOSTING
+================================================================================
+
+🎯 MÉTRICAS DE PERFORMANCE:
+
+   Conjunto de TREINO:
+   • R² Score:  0.9349 (93.49% da variância explicada)
+   • RMSE:      4.32 MPa
+   • MAE:       3.18 MPa
+
+   Conjunto de TESTE:
+   • R² Score:  0.7977 (79.77% da variância explicada) ⭐
+   • RMSE:      7.43 MPa
+   • MAE:       5.34 MPa ⭐
+
+   Overfitting: 0.137 (13.7% - moderado, aceitável)
+
+💡 INTERPRETAÇÃO:
+   • O modelo explica 79.77% da variação na resistência
+   • Erro médio de ±5.34 MPa nas previsões
+   • Overfitting moderado, mas dentro do aceitável
+
+🔧 HIPERPARÂMETROS:
+   • n_estimators: 100
+   • max_depth: 5
+   • random_state: 42
+
+================================================================================
+5. IMPORTÂNCIA DAS FEATURES
+================================================================================
+
+🏆 RANKING DE IMPORTÂNCIA:
+
+   🥇 Age (Idade):              33.4% ⭐
+   🥈 Cement (Cimento):         20.5%
+   🥉 Water (Água):             12.8%
+   4. Superplasticizer:         11.3%
+   5. Blast Furnace Slag:       8.4%
+   6. Fly Ash:                  4.9%
+   7. Fine Aggregate:           4.5%
+   8. Coarse Aggregate:         4.1%
+
+💡 INSIGHTS:
+   • Top 3 features explicam 66.7% da importância
+   • Age é a feature mais importante (33.4%)
+   • Agregados têm baixa importância (<5% cada)
+
+📊 CORRELAÇÃO COM RESISTÊNCIA:
+   1. Superplasticizer: 0.339
+   2. Cement:           0.333
+   3. Age:              0.281
+
+================================================================================
+6. EXEMPLOS DE PREVISÕES
+================================================================================
+
+📊 CONCRETO PADRÃO (28 dias):
+   • Composição: 280 kg/m³ cimento, 80 kg/m³ escória
+   • Previsão: 41.45 MPa (intervalo: 36.11 - 46.79 MPa)
+
+📊 CONCRETO ALTA RESISTÊNCIA (28 dias):
+   • Composição: 500 kg/m³ cimento, 150 kg/m³ escória
+   • Previsão: 63.18 MPa (intervalo: 57.84 - 68.52 MPa)
+
+📈 EVOLUÇÃO TEMPORAL:
+   • 3 dias:  18.81 MPa (30% da resistência final)
+   • 7 dias:  27.92 MPa (45% da resistência final)
+   • 28 dias: 53.07 MPa (85% da resistência final) ⭐
+   • 90 dias: 62.39 MPa (100% da resistência final)
+
+================================================================================
+7. CONCLUSÕES E RECOMENDAÇÕES
+================================================================================
+
+✅ CONCLUSÕES:
+
+   1. O modelo Gradient Boosting apresentou excelente performance
+      (R² = 0.7977, MAE = 5.34 MPa)
+
+   2. Age (idade) é a feature mais importante (33.4%), seguida
+      por Cement (20.5%) e Water (12.8%)
+
+   3. O modelo é 786% melhor que baselines simples, justificando
+      a complexidade adicional
+
+   4. Overfitting moderado (13.7%), mas dentro do aceitável
+
+   5. Erro médio de ±5.34 MPa é adequado para aplicações práticas
+
+🎯 RECOMENDAÇÕES:
+
+   1. OTIMIZAÇÃO DE DOSAGEM:
+      • Ponto ótimo de cimento: ~400 kg/m³
+      • Acima disso, retorno decrescente
+      • Investir em superplastificante e adições minerais
+
+   2. ESTRATÉGIA DE CURA:
+      • Teste padrão aos 28 dias (85% da resistência)
+      • Para projetos críticos, aguardar 90 dias
+
+   3. MELHORIAS FUTURAS:
+      • Otimização de hiperparâmetros (GridSearchCV)
+      • Ensemble com outros modelos
+      • Feature engineering (interações entre features)
+      • Coleta de mais dados (especialmente concretos especiais)
+
+================================================================================
+8. ARQUIVOS GERADOS
+================================================================================
+
+📁 Modelo treinado:
+   • ./concrete_models\concrete_strength_model.pkl
+
+📁 Scaler:
+   • ./concrete_models\concrete_scaler.pkl
+
+📋 Como usar:
+
+   import joblib
+   model = joblib.load('./concrete_models\concrete_strength_model.pkl')
+   prediction = model.predict([[cement, slag, fly_ash, water, 
+                               superplasticizer, coarse_agg, 
+                               fine_agg, age]])
+
+================================================================================
+FIM DO RELATÓRIO
+================================================================================

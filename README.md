@@ -1,6 +1,3 @@
-# 🏗️ Concrete Strength Prediction with Machine Learning
-
-```markdown
 <div align="center">
   <h1>🏗️ Concrete Strength Prediction with Machine Learning</h1>
   <p><i>Advanced regression models for predicting concrete compressive strength with interactive dashboard</i></p>
@@ -443,7 +440,7 @@ See [LICENSE.md](LICENSE.md) for full details.
   <p>⭐ If you found this project helpful, please give it a star!</p>
   <p>Made with ❤️ and Python</p>
 </div>
-```
+
 
 ---
 

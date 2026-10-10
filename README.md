@@ -6,7 +6,7 @@
 <p align="center">
   <a href="#-overview">Overview</a> •
   <a href="#-objective">Objective</a> •
-  <a href="#-technologies-used">Technologies</a> •
+  <a href="#%EF%B8%8F-technologies-used">Technologies</a> •
   <a href="#-project-structure">Project Structure</a> •
   <a href="#-data-pipeline">Data Pipeline</a> •
   <a href="#-models-implemented">Models</a> •

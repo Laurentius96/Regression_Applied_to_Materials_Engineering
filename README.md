@@ -419,10 +419,9 @@ See [LICENSE.md](LICENSE.md) for full details.
 
 ## 👤 Author
 
-**Your Name**
+**Lorenzo C. Bianchi**
 - GitHub: [@Laurentius96](https://github.com/Laurentius96)
 - LinkedIn: [Lorenzo C. Bianchi](https://www.linkedin.com/in/cb-lorenzo/)
-- Email: your.email@example.com
 
 ---
 
